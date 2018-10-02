@@ -15,6 +15,7 @@
  */
 package org.japo.java.main;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -28,26 +29,26 @@ public class Main {
      */
     public static void main(String[] args) {
         // Instanciar Scanner
-        Scanner scn = new Scanner(System.in);
+        Scanner scn = new Scanner(System.in, "ISO-8859-1");
+        scn.useLocale(Locale.ENGLISH);
 
         // Variable
         final boolean permisoOK;
 
+        // Cuarentena
         try {
             // Leer estado
             System.out.print("Permiso de circulación ...: ");
             permisoOK = scn.nextBoolean();
 
-            // Borrar buffer
-            scn.nextLine();
-
             // Mensaje
-            System.out.printf("Permiso de circulación ...: %b\n", permisoOK);
+            System.out.printf("Permiso de circulación ...: %b%n", permisoOK);
         } catch (Exception e) {
             // Mensaje
-            System.out.println("Entrada incorrecta");
-
+            System.out.println("ERROR: Entrada incorrecta");
+        } finally {
             // Borrar buffer
-            scn.nextLine();        }
+            scn.nextLine();
+        }
     }
 }

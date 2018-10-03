@@ -33,7 +33,7 @@ public class Main {
         scn.useLocale(Locale.ENGLISH);
 
         // Variable
-        final boolean permisoOK;
+        boolean permisoOK;
 
         // Cuarentena
         try {
